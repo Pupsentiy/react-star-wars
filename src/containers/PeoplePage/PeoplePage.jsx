@@ -1,52 +1,56 @@
 import React, { useEffect, useState } from "react";
-import { getApiResource } from "../../utils/network";
-import { API_PEOPLE } from "../../constants/api";
-import { getPeopleId, getPeopleImage } from "../../srvices/getPopleData";
+import { withErrorApi } from "@hoc-helpers/withErrorApi";
+import { getApiResource } from "@utils/network";
+import { API_PEOPLE } from "@constants/api";
+import { getPeopleId, getPeopleImage } from "@srvices/getPopleData";
+import PeopleList from "@components/PeoplePage/PeopleList";
+import PropTypes from 'prop-types'
 
 import styles from "./PeoplePage.module.css";
 
-const PeoplePage = () => {
+const PeoplePage = ({setErrorApi}) => {
     const [people, setPeople] = useState(null);
 
     const getResource = async (url) => {
         const res = await getApiResource(url);
 
-        const peopleList = res.results.map(({ name, url }) => {
-            const id = getPeopleId(url)
-            const img = getPeopleImage(id)
+        if (res) {
+            const peopleList = res.results.map(({ name, url }) => {
+                const id = getPeopleId(url)
+                const img = getPeopleImage(id)
 
+                return {
+                    id,
+                    name,
+                    img
+                };
 
-            return {
-                id,
-                name,
-                img
-            };
+            });
 
-        });
+            setPeople(peopleList)
+            setErrorApi(false)
 
-        setPeople(peopleList)
+        } else {
+            setErrorApi(true)
+        }
+
     };
 
-    useEffect(() => {
+        useEffect(() => {
         getResource(API_PEOPLE);
     }, []);
 
     return (
         <>
-            {people && (
-                <ul>
-                    {people.map(({ id, name, img }) =>
-                        <li key={id}>
-                            <img src={img} alt={name} />
-                            <p>{name}</p>
-                        </li>
-
-                    )}
-                </ul>
-            )}
+            <h1>Navigation</h1>
+            {people && <PeopleList people={people} />}
 
         </>
     )
 };
 
-export default PeoplePage;
+PeoplePage.propTypes = {
+    setErrorApi: PropTypes.func
+}
+
+export default withErrorApi(PeoplePage);

@@ -1,7 +1,7 @@
 import {
     HTTPS, SWAPI_ROOT, SWAPI_PEOPLE,
     GUIDE_IMG_EXTENSION, URL_IMG_PERSON
-} from '../constants/api'; //возможно будет ошибка из за HTTPS // HTTP
+} from '@constants/api'; //возможно будет ошибка из за HTTPS // HTTP
 
 const getId = (url, category) => {
     const id = url
