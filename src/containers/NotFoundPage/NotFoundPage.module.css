@@ -1,0 +1,15 @@
+
+.img{
+    width: 400px;
+    margin: auto;
+    border-radius: 60px;
+}
+
+.text{
+    margin-top: var(--spacing-large);
+    font-size: var(--font-size-subheader);
+    color: var(--color-yellow);
+    text-align: center;
+    font-weight: 600;
+    text-shadow: var(--text-shadow-yellow);
+}
