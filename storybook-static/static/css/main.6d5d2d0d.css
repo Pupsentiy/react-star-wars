@@ -1,4 +1,19 @@
-.button {
+:root{
+  --transition: 0.4s;
+  
+  --font-bold: 600;
+  --font-size-button:14px;
+  --font-family-main: sans-serif;
+  
+  --border-radius-small: 3px;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray: #9c9c9c;
+
+  --font-size-button:14px;
+}
+
+.UiButton_button__wmJc4 {
   min-width: 100px;
   padding: 10px;
   border-radius: var(--border-radius-small);
@@ -11,7 +26,7 @@
   cursor: pointer;
 }
 
-.button:disabled,
+.UiButton_button__wmJc4:disabled,
 button:disabled:hover {
   color: var(--color-gray);
   background-color: transparent;
@@ -19,19 +34,22 @@ button:disabled:hover {
   cursor: auto;
 }
 
-.dark {
+.UiButton_dark__S7xdY {
   border: 1px solid var(--color-white);
   color: var(--color-white);
 }
-.dark:hover {
+.UiButton_dark__S7xdY:hover {
   background-color: var(--color-white);
   color: var(--color-black);
 }
-.light {
+.UiButton_light__yXhH8 {
   border: 1px solid var(--color-black);
   color: var(--color-black);
 }
-.light:hover {
+.UiButton_light__yXhH8:hover {
   background-color: var(--color-black);
   color: var(--color-white);
 }
+
+
+/*# sourceMappingURL=main.6d5d2d0d.css.map*/

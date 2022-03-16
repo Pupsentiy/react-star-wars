@@ -5,7 +5,7 @@ import { withErrorApi } from "@hoc-helpers/withErrorApi";
 import PeopleList from "@components/PeoplePage/PeopleList";
 import PeopleNavigation from '@components/PeoplePage/PeopleNavigation'
 import { getApiResource, changeHTTP } from "@utils/network";
-import { getPeopleId, getPeopleImage, getPeoplePageId } from "@srvices/getPopleData";
+import { getPeopleId, getPeopleImage, getPeoplePageId } from "@services/getPeopleData";
 import { API_PEOPLE } from "@constants/api";
 import { useQueryParams } from "@hooks/useQueryParams";
 
