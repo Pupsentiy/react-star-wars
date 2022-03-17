@@ -5,10 +5,11 @@ import { useParams } from 'react-router';
 
 import { withErrorApi } from "@hoc-helpers/withErrorApi";
 
-import  PersonInfo  from '@components/PersonPage/PersonInfo'
-import  PersonPhoto  from '@components/PersonPage/PersonPhoto'
+import PersonInfo from '@components/PersonPage/PersonInfo'
+import PersonPhoto from '@components/PersonPage/PersonPhoto'
+import PersonLinkBack from '@components/PersonPage/PersonLinkBack'
 
-import { getPeopleImage} from "@services/getPeopleData"
+import { getPeopleImage } from "@services/getPeopleData"
 import { getApiResource } from '@utils/network'
 import { API_PERSON } from '@constants/api';
 
@@ -21,7 +22,7 @@ const PersonPage = ({ setErrorApi }) => {
     const [personPhoto, setPersonFoto] = useState(null)
 
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         (async () => {
@@ -53,12 +54,19 @@ const PersonPage = ({ setErrorApi }) => {
 
     return (
         <>
-            <h1>{personName}</h1>
-            <PersonPhoto 
-                personPhoto={personPhoto}
-                personName={personName}
-            />
-            {personInfo && <PersonInfo personInfo={personInfo}/>}
+            <PersonLinkBack/>
+            
+            <div className={styles.wrapper}>
+                <span className={styles.person__name}>{personName}</span>
+                <div className={styles.container}>
+                    <PersonPhoto
+                        personPhoto={personPhoto}
+                        personName={personName}
+                    />
+                    {personInfo && <PersonInfo personInfo={personInfo} />}
+                </div>
+
+            </div>
         </>
     )
 }

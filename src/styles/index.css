@@ -8,6 +8,7 @@
   --color-gray: #9c9c9c;
 
   --spacing-small: 10px;
+  --spacing-ultrasmall: 10px;
   --spacing-medium: 20px;
   --spacing-large: 30px;
 
@@ -15,7 +16,10 @@
   --transition: 0.4s;
   --font-family-main: sans-serif;
 
+  --margin-list: 7px;
+
   --border-radius-small: 3px;
+  --border-radius-medium: 5px;
 
   --text-shadow-yellow: 
     0 0 2px var(--color-white),
