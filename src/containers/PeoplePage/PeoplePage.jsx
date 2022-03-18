@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from 'prop-types'
 
 import { withErrorApi } from "@hoc-helpers/withErrorApi";
+
 import PeopleList from "@components/PeoplePage/PeopleList";
 import PeopleNavigation from '@components/PeoplePage/PeopleNavigation'
 import { getApiResource, changeHTTP } from "@utils/network";
