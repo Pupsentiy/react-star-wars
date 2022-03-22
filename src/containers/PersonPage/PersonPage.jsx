@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, Suspense } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { withErrorApi } from "@hoc-helpers/withErrorApi";
@@ -19,17 +20,22 @@ import styles from './PersonPage.module.css';
 const PersonFilms = React.lazy(() => import('@components/PersonPage/PersonFilms'));
 
 const PersonPage = ({ setErrorApi }) => {
+    const [personId, setPersonId] = useState(null)
     const [personInfo, setPersonInfo] = useState(null)
     const [personName, setPersonName] = useState(null)
     const [personPhoto, setPersonFoto] = useState(null)
     const [personFilms, setPersonFilms] = useState(null)
+    const [personFavorite, setPersonFavorite] = useState(false)
 
-
+    const storeData = useSelector(state => state.favoriteReducer)
     const { id } = useParams();
 
     useEffect(() => {
         (async () => {
             const res = await getApiResource(`${API_PERSON}/${id}/`);
+
+            storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false)
+            setPersonId(id)
 
             if (res) {
                 setPersonInfo([
@@ -66,8 +72,11 @@ const PersonPage = ({ setErrorApi }) => {
                 
                 <div className={styles.container}>
                     <PersonPhoto
+                        personId={personId}
                         personPhoto={personPhoto}
                         personName={personName}
+                        personFavorite={personFavorite}
+                        setPersonFavorite={setPersonFavorite}
                     />
 
                     {personInfo && <PersonInfo personInfo={personInfo} />}

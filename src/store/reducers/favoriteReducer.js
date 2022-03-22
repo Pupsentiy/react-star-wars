@@ -1,6 +1,14 @@
-import { ADD_PERSON_TO_FAVORITE, REMOVE_PERSON_FROM_FAVORITE } from '@store/constants/actoinsTypes'
+import { omit } from 'lodash'
+import { ADD_PERSON_TO_FAVORITE, REMOVE_PERSON_FROM_FAVORITE } from '@store/constants/actionsTypes'
 
-const initialState = 'hello';
+// const store = {
+//     2:{
+//         name: 'R2-D2',
+//         img: '',
+//     },
+// }
+
+const initialState = ''; 
 
 const favoriteReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -10,10 +18,7 @@ const favoriteReducer = (state = initialState, action) => {
                 ...action.payload
             }
         case REMOVE_PERSON_FROM_FAVORITE:
-            return {
-                ...state,
-                ...action.payload
-            }
+            return omit(state, [action.payload])
         default:
             return state;
     }

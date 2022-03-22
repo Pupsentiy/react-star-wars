@@ -14,12 +14,12 @@ const routesConfig = [
         element: <PeoplePage/>
     },
     {
-        path: '/favorites',
-        element: <FavoritePage/>
-    },
-    {
         path: '/people/:id',
         element: <PersonPage/>
+    },
+    {
+        path: '/favorites',
+        element: <FavoritePage/>
     },
     {
         path: '*',
