@@ -44,8 +44,16 @@
 
   --width-max: 1200px;
 
-  --theme-default-header: #cccc46;
-  --theme-dafault-bgimage: url(@static/bg.jpeg);
+  /* Themes*/
+  --theme-light-header: #dfe2df;
+  --theme-dark-header: #ca6c6f;
+  --theme-neutral-header: #cccc46;
+  --theme-default-header: var(--theme-neutral-header);
+  
+  --theme-light-bgimage: url(@static/light.jpg);
+  --theme-dark-bgimage: url(@static/dark.jpeg);
+  --theme-neutral-bgimage: url(@static/bg.jpeg);
+  --theme-dafault-bgimage: var(--theme-neutral-bgimage);
 }
 
 body {
