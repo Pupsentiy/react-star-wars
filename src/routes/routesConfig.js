@@ -3,6 +3,8 @@ import PeoplePage from "@containers/PeoplePage";
 import PersonPage from "@containers/PersonPage";
 import NotFoundPage from '@containers/NotFoundPage'
 import FavoritePage from '@containers/FavoritePage'
+import SearchPage from '@containers/SearchPage'
+import ErrorMessage from '@components/ErrorMessage'
 
 const routesConfig = [
     {
@@ -22,11 +24,18 @@ const routesConfig = [
         element: <FavoritePage/>
     },
     {
-        path: '*',
-        element: <NotFoundPage/>
+        path: '/search',
+        element: <SearchPage/>
+    },{
+        path: '/fail',
+        element: <ErrorMessage/>
     },
     {
         path: '/not-found',
+        element: <NotFoundPage/>
+    },
+    {
+        path: '*',
         element: <NotFoundPage/>
     },
 ];
